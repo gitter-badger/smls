@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cp -a $DEPS/binutils .
+cd binutils
+
+rm -rf ../binutils-build
+mkdir ../binutils-build
+cd ../binutils-build
+
+../binutils/configure LDFLAGS="-static" \
+ --prefix="$BUILDROOT/cross-tools" \
+ --target=$TARGET \
+ --with-sysroot="$BUILDROOT/cross-tools/$TARGET" \
+ --disable-shared \
+ --disable-nls \
+ --disable-werror \
+ --disable-ppl-version-check \
+ --disable-cloog-version-check \
+ --disable-doc
+
+
+make configure-host
+make $JOBS
+make install

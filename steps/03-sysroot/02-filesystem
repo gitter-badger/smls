@@ -1,0 +1,37 @@
+#!bin/sh
+
+mkdir -pv ${BUILDFS}/{bin,dev,etc,home,lib}
+mkdir -pv ${BUILDFS}/{mnt,opt,proc,sbin,srv,sys}
+mkdir -pv ${BUILDFS}/var/{cache,lib,local,lock,log,opt,run,spool}
+install -dv -m 0750 ${ROOTFS}/root
+install -dv -m 1777 ${ROOTFS}/tmp
+mkdir -pv ${BUILDROOT}/rootfs/usr/{,local/}{bin,include,lib,sbin,share,src}
+
+
+# Users
+cat > ${ROOTFS}/etc/passwd << "EOF"
+root::0:0:root:/root:/bin/ash
+nobody:x:65534:65534:nobody:/:/bin/false
+EOF
+
+# Groups
+
+cat > ${ROOTFS}/etc/group << "EOF"
+root:x:0:
+bin:x:1:
+sys:x:2:
+kmem:x:3:
+tty:x:4:
+tape:x:5:
+daemon:x:6:
+floppy:x:7:
+disk:x:8:
+lp:x:9:
+dialout:x:10:
+audio:x:11:
+video:x:12:
+utmp:x:13:
+usb:x:14:
+cdrom:x:15:
+nobody:x:65534:
+EOF

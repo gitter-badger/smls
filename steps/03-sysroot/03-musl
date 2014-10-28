@@ -1,0 +1,13 @@
+cp -a $DEPS/musl .
+cd musl
+
+CROSS_COMPILE="${TARGET}-" \
+./configure \
+ --prefix=/ \
+ --target=$TARGET \
+ --enable-optimize=size \
+ --enable-debug \
+ --disable-gcc-wrapper
+
+CC="${TARGET}-gcc" make $JOBS
+DESTDIR="$ROOTFS" make install

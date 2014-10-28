@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+# Remove the old gcc source,
+rm -rf gcc
+
+cp -a $DEPS/gcc .
+cd gcc
+
+# Not sure if this is needed at all. it fails anyways.
+patch -Np1 -i ${PATCHDIR}/gcc/gcc-4.7.3-musl-1.patch
+
+# GCC built-in prerequisites
+cp -a $DEPS/gmp .
+cp -a $DEPS/mpc .
+cp -a $DEPS/mpfr .
+
+rm -rf ../gcc-build
+mkdir ../gcc-build
+cd ../gcc-build
+
+../gcc/configure                                  \
+  --prefix="$BUILDROOT/cross-tools" \
+  --build=$HOST    \
+  --host=$HOST    \
+  --target=$TARGET \
+  --with-sysroot="$BUILDROOT/cross-tools/$TARGET" \
+  --disable-nls \
+  --enable-languages=c \
+  --enable-c99 \
+  --enable-long-long \
+  --disable-libmudflap \
+  --disable-multilib \
+  --with-mpfr-include=$(pwd)/../gcc/mpfr/src \
+  --with-mpfr-lib=$(pwd)/mpfr/src/.libs 
+
+
+make $JOBS 
+make install
+
+#(echo 'main(){}' > dummy.c; cc dummy.c; readelf -l a.out | grep ': /tools'; rm -v dummy.c a.out)

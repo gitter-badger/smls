@@ -1,0 +1,11 @@
+cp -a $DEPS/musl .
+cd musl
+
+CC=${TARGET}-gcc \
+./configure \
+ --prefix=/ \
+ --target=$TARGET \
+ --disable-gcc-wrapper
+
+CC="${TARGET}-gcc" make $JOBS
+DESTDIR="${BUILDROOT}/cross-tools/${TARGET}" make install
