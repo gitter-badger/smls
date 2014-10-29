@@ -1,8 +1,7 @@
 
-#### \*\* WORKING IN PROGRESS \*\* DOESN'T WORK YET.
+###### WORKING IN PROGRESS. DOESN'T WORK YET.
 
 
-====
 
 
 
@@ -72,12 +71,10 @@ sh-4.2$  /tmp/smls-master/build 02-temporary 03-sysroot
 ```
 
 
-## How Does it works? 
+### How Does it works? 
 Read The Source, Luke!
 
 
-
-=====
 
 
 ### License 
