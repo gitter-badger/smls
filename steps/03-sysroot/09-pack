@@ -1,0 +1,3 @@
+#!bin/sh
+
+tar cvpf $BUILDROOT/rootfs.tar -C $BUILDROOT/rootfs .
