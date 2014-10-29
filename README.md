@@ -34,7 +34,7 @@ $ cd smls                                     # Enter SMLS
 
 ###### Dependencies 
 
-You need to install the dependencies, run the `./01-prepare/01-systemcheck` to see if you have all the requirments.
+You need to install the build dependencies, run the `./01-prepare/01-systemcheck` to see if you have all the requirments.
 >   TODO: This step can automated by making `./01-prepare/01-systemcheck` fail when a Requirements is missing or old.  
 >   Can you help out? send us a pull request!
 
@@ -45,10 +45,16 @@ That is it.
 
 
 #### Go! 
-As stated above, setting the `BUILDROOT` is optional.  
 
 ```sh 
-$ BUILDROOT=/path/to/build/root/ ./build.sh   # Build!  
+$ ./build   # Builds all stages in /tmp/buildroot (default $BUILDROOT).
+```
+
+or you can optionally pass any stage that you want to build, and only those stages will be built. 
+```sh
+$ ./build  01-prepare  # Pre the system only.
+$ # You can then run 02-temporary 03-sysroot without internet.
+$ ./build 02-prepare 03-sysroot
 ```
 
 With Docker 
@@ -71,18 +77,20 @@ Read The Source, Luke!
 License 
 =======
 
-Copyright (c) <2014> by omeid <public@omeid.me>. This material may be distributed only subject
-to the terms and conditions set forth in the [Open Publication License, v1.0](LICENSE) or [later](http://www.opencontent.org/openpub/).
+Copyright (c) <2014> by omeid <public@omeid.me>. 
+
+This material may be distributed only subject to the terms and conditions 
+set forth in the [Open Publication License, v1.0](LICENSE) or [later](http://www.opencontent.org/openpub/).
 
 
 Credits & Contributors
 ======================
 
-Based on [CLFS Embedded](http://cross-lfs.org/view/clfs-embedded) By 
+This work based on original work at [CLFS Embedded](http://cross-lfs.org/view/clfs-embedded) by
 - Andrew Bradford
 - Joe Ciccone
 - Jim Gifford
 - Maarten Lankhorst
 - Ryan Oliver
 
-And a special thanks to Andrew Bradford for writing the musl gcc patch.
+A special thanks to Andrew Bradford for writing the musl gcc patch.

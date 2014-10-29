@@ -32,10 +32,11 @@ cd ../gcc-build
   --disable-libmudflap \
   --disable-multilib \
   --with-mpfr-include=$(pwd)/../gcc/mpfr/src \
-  --with-mpfr-lib=$(pwd)/mpfr/src/.libs 
-
+  --with-mpfr-lib=$(pwd)/mpfr/src/.libs \
+  --without-headers
+# Without headers? huh.
 
 make $JOBS 
 make install
 
-#(echo 'main(){}' > dummy.c; cc dummy.c; readelf -l a.out | grep ': /tools'; rm -v dummy.c a.out)
+echo 'main(){}' | ${TARGET}-gcc -xc - && readelf -l a.out | grep 'program interpreter'; rm -f a.out

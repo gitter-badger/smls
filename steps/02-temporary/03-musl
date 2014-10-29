@@ -9,3 +9,6 @@ CC=${TARGET}-gcc \
 
 CC="${TARGET}-gcc" make $JOBS
 DESTDIR="${BUILDROOT}/cross-tools/${TARGET}" make install
+
+# Test the compiler.
+echo 'main(){}' | ${TARGET}-gcc -static -xc - | ldd a.out; rm a.out
