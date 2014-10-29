@@ -2,7 +2,7 @@
 #### \*\* WORKING IN PROGRESS \*\* DOESN'T WORK YET.
 
 
----
+====
 
 
 
@@ -10,7 +10,7 @@ Selfhosting Musl Linux Sysroot/Scripts
 =========
 
 
-smls is automated build scripts for building a selfhosting musl linux based on the first host architcture. It downloads the sources and dependencies, building, and creating a tar achirve the built root, ideal for Docker.
+SMLS is automated build scripts for building a selfhosting musl linux. It downloads the source, building, and creating a tar achirve the built root, ideal for Docker.
 
 
 
@@ -18,26 +18,36 @@ Build
 =====
 
 ### ***IMPORTANT***
-This script may permanently damage your system. It is **_strongly_  recommanded** that you run this in a dedicated virtualmachine or use docker.
+This script may **_permanently damage your system_**. It is _strongly recommanded_ that you run this in a dedicated virtualmachine or use docker (See With Docker for details).
 
+Clone
+------
+```sh
+$ git clone https://github.com/omeid/smls;    # clone the repo scripts.
+$ cd smls                                     # Enter SMLS
+```
 
-Configuration
+Configure
 -------------
+
+###### Dependencies
+You need to install the dependencies, run the `./01-prepare/01-systemcheck` to see if you have all the requirments.
+>   TODO: This step can automated by making `./01-prepare/01-systemcheck` fail when a Requirements is missing or old. Can you help out? send us a pull request!
+
+
 There is only one optional environment variables `BUILDROOT` that defaults to `/tmp/buildroot` which you may change.
 That is.
 
 
-Building
-Clone, and run the build.
+Run!
 --------
+As stated above, setting the `BUILDROOT` is optional.
 ```sh
-~ $ git clone https://github.com/omeid/smls; cd smls # clone the repo scripts.
-~/smls $ BUILDROOT=/path/to/build/root/ ./build.sh   # And viola! it starts building.
-
+$ BUILDROOT=/path/to/build/root/ ./build.sh   # Build!
 ```
 
 With Docker
-----------
+==========
 Coming soon...
 
 
@@ -49,7 +59,7 @@ Read the source code luke!
 
 
 
----
+=====
 
 
 Credits
@@ -61,4 +71,5 @@ This project wouldn't have been possible without [CLFS Projec](http://cross-lfs.
   - Jim Gifford
   - Maarten Lankhorst
   - Ryan Oliver
-  - 
+
+And a special thanks to Andrew Bradford for writing the musl gcc patch.
