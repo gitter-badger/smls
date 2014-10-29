@@ -58,9 +58,18 @@ $ ./build 02-prepare 03-sysroot
 
 ### With Docker 
 
-Coming soon...
+> Note: This is a temporary setup for debugging. It won't give you a smls based image just yet. 
 
+Build the docker image, and start a container
+```sh
+$ docker build -t smls-master github.com/omeid/smls &&
+$ docker -i -t --name smls-master-debug run smls-master sh
+```
 
+You should be in the in container now, so run the second part of build:
+```sh
+sh-4.2$  /tmp/smls-master/build 02-temporary 03-sysroot
+```
 
 
 ## How Does it works? 
