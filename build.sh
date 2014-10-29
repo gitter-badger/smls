@@ -2,7 +2,7 @@
 
 
 # Setup
-set -ex
+set -e
 umask 022
 
 # Where are the scripts?
