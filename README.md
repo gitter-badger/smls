@@ -6,7 +6,7 @@
 
 
 Selfhosting Musl Linux Sysroot/Scripts 
-======================
+=======================================
 
 
 SMLS is automated build scripts for building a selfhosting musl linux. It
@@ -70,11 +70,19 @@ You should be in a container now, if so run the second part of build:
 sh-4.2$  /tmp/smls/build 02-temporary 03-sysroot
 ```
 
-====
+if you want to see a more detailed output of the build process, fire up a second terminal and run:
+```sh
+$ docker exec -it smls-master-debug sh -c 'tail -f /tmp/buildroot/logs/*'
+```
+_Requires Docker 1.3+_.
+
+
 
 #### How Does it works? 
 Read The Source, Luke!
 
+
+====
 
 
 
