@@ -70,14 +70,15 @@ You should be in a container now, if so run the second part of build:
 sh-4.2$  /tmp/smls/build 02-temporary 03-sysroot
 ```
 
+====
 
-### How Does it works? 
+#### How Does it works? 
 Read The Source, Luke!
 
 
 
 
-### License 
+#### License 
 
 Copyright (c) <2014> by omeid <public@omeid.me>. 
 
@@ -85,7 +86,7 @@ This material may be distributed only subject to the terms and conditions
 set forth in the [Open Publication License, v1.0](LICENSE) or [later](http://www.opencontent.org/openpub/).
 
 
-### Credits & Contributors
+#### Credits & Contributors
 
 This work is based on original work at [CLFS Embedded](http://cross-lfs.org/view/clfs-embedded) by
 - Andrew Bradford
