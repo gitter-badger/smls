@@ -16,21 +16,20 @@ ideal for building Docker images.
 
 
 
-Build 
-=====
+#### Build 
 
-### ***IMPORTANT*** 
+#### ***IMPORTANT*** 
 This script may **_permanently damage your system_**. It is _strongly recommanded_ that you run this in a dedicated virtualmachine or use
 docker (See With Docker for details).
 
-#### Clone 
+##### Clone 
 
 ```sh 
 $ git clone https://github.com/omeid/smls;    # clone the repo scripts.  
 $ cd smls                                     # Enter SMLS 
 ```
 
-#### Configure
+##### Configure
 
 ###### Dependencies 
 
@@ -44,7 +43,7 @@ There is only one optional environment variables `BUILDROOT` that defaults to `/
 That is it.
 
 
-#### Go! 
+##### Go! 
 
 ```sh 
 $ ./build   # Builds all stages in /tmp/buildroot (default $BUILDROOT).
@@ -57,16 +56,14 @@ $ # You can then run 02-temporary 03-sysroot without internet.
 $ ./build 02-prepare 03-sysroot
 ```
 
-With Docker 
-========== 
+### With Docker 
 
 Coming soon...
 
 
 
 
-How Does it works? 
-============= 
+## How Does it works? 
 Read The Source, Luke!
 
 
@@ -74,8 +71,7 @@ Read The Source, Luke!
 =====
 
 
-License 
-=======
+### License 
 
 Copyright (c) <2014> by omeid <public@omeid.me>. 
 
@@ -83,10 +79,9 @@ This material may be distributed only subject to the terms and conditions
 set forth in the [Open Publication License, v1.0](LICENSE) or [later](http://www.opencontent.org/openpub/).
 
 
-Credits & Contributors
-======================
+### Credits & Contributors
 
-This work based on original work at [CLFS Embedded](http://cross-lfs.org/view/clfs-embedded) by
+This work is based on original work at [CLFS Embedded](http://cross-lfs.org/view/clfs-embedded) by
 - Andrew Bradford
 - Joe Ciccone
 - Jim Gifford
