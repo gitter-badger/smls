@@ -65,9 +65,9 @@ $ docker build -t smls-master github.com/omeid/smls &&
 $ docker -i -t --name smls-master-debug run smls-master sh
 ```
 
-You should be in the in container now, so run the second part of build:
+You should be in a container now, if so run the second part of build:
 ```sh
-sh-4.2$  /tmp/smls-master/build 02-temporary 03-sysroot
+sh-4.2$  /tmp/smls/build 02-temporary 03-sysroot
 ```
 
 
