@@ -1,8 +1,8 @@
 #!bin/sh
 
-mkdir -pv ${BUILDFS}/{bin,dev,etc,home,lib}
-mkdir -pv ${BUILDFS}/{mnt,opt,proc,sbin,srv,sys}
-mkdir -pv ${BUILDFS}/var/{cache,lib,local,lock,log,opt,run,spool}
+mkdir -pv ${ROOTFS}/{bin,dev,etc,home,lib}
+mkdir -pv ${ROOTFS}/{mnt,opt,proc,sbin,srv,sys}
+mkdir -pv ${ROOTFS}/var/{cache,lib,local,lock,log,opt,run,spool}
 install -dv -m 0750 ${ROOTFS}/root
 install -dv -m 1777 ${ROOTFS}/tmp
 mkdir -pv ${BUILDROOT}/rootfs/usr/{,local/}{bin,include,lib,sbin,share,src}

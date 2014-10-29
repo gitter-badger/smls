@@ -48,36 +48,6 @@ That is it.
 $ ./build   # Builds all stages in /tmp/buildroot (default $BUILDROOT).
 ```
 
-or you can optionally pass any stage that you want to build, and only those stages will be built. 
-```sh
-$ ./build  01-prepare  # Pre the system only.
-$ # You can then run 02-temporary 03-sysroot without internet.
-$ ./build 02-prepare 03-sysroot
-```
-
-### With Docker 
-
-> Note: This is a temporary setup for debugging. It won't give you a smls based image just yet. 
-
-Build the docker image, and start a container
-```sh
-$ docker build -t smls-master github.com/omeid/smls &&
-$ docker -i -t --name smls-master-debug run smls-master sh
-```
-
-You should be in a container now, if so run the second part of build:
-```sh
-sh-4.2$  /tmp/smls/build 02-temporary 03-sysroot
-```
-
-if you want to see a more detailed output of the build process, fire up a second terminal and run:
-```sh
-$ docker exec -it smls-master-debug sh -c 'tail -f /tmp/buildroot/logs/*'
-```
-_Requires Docker 1.3+_.
-
-
-
 #### How Does it works? 
 Read The Source, Luke!
 
